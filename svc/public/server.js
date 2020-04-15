@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 import { getProjectWithEmployees } from './api'
+import { yamlReader } from './api/yamlReader';
 // const { getProjectWithEmployees } = require('./api')
 
 // CHAIN OF RESPONSIBILITY // pierwszy który obsłuży - zamyka temat
@@ -23,6 +24,16 @@ app.get('/projects/:id', async (req, res, next) => {
 
   next()
 })
+
+app.get('/benefits', async (req,res, next) => {
+
+  const file = yamlReader.getContent('./benefits/benefits-DE.yaml')
+  console.log(file)
+
+  next()
+})
+
+
 
 app.listen(PORT, () => {
   console.log("yolo")
