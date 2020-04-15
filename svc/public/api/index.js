@@ -23,7 +23,8 @@ export const getEmployee = async (id) => {
 }
 
 export const getBenefit = async () => {
-  const res = await axios.get(`${EMPLOYEES_SVC_URL}/benefits`)
+  const res = await axios.get(`${BENEFITS_SVC_URL}/benefits`)
+  console.log('@@res', res)
   return res.data
 }
 
