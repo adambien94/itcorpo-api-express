@@ -25,10 +25,13 @@ app.get('/projects/:id', async (req, res, next) => {
   next()
 })
 
+const path = require('path')
 app.get('/benefits', async (req,res, next) => {
 
-  const file = yamlReader.getContent('./benefits/benefits-DE.yaml')
-  console.log(file)
+  const exampleYaml = path.join(__dirname, './benefits/benefits-ES.yaml')
+
+  const file = yamlReader.getContent(exampleYaml)
+  console.log('filefilefilefilefilefilefilefilefilefile',file)
   const benefits = await getBenefit()
   res.status(200).send(benefits)
 
