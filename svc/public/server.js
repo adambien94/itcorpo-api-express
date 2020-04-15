@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-import { getProjectWithEmployees } from './api'
+import { getProjectWithEmployees, getBenefit } from './api'
 // const { getProjectWithEmployees } = require('./api')
 
 // CHAIN OF RESPONSIBILITY // pierwszy który obsłuży - zamyka temat
@@ -24,7 +24,13 @@ app.get('/projects/:id', async (req, res, next) => {
   next()
 })
 
+app.get('/benefits', async (req, res, next) => {
+  const benefits = await getBenefit()
+  res.status(200).send(benefits)
+
+  next()
+})
+
 app.listen(PORT, () => {
-  console.log("yolo")
   console.log(`Listening on PORT:${PORT}`)
 })
