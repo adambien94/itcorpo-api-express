@@ -25,5 +25,6 @@ app.get('/projects/:id', async (req, res, next) => {
 })
 
 app.listen(PORT, () => {
+  console.log("yolo")
   console.log(`Listening on PORT:${PORT}`)
 })
